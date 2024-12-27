@@ -1,6 +1,10 @@
+import 'package:exam_practice/blocs/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:exam_practice/blocs/auth/auth_event.dart';
+import 'package:exam_practice/blocs/auth/auth_state.dart';
 import 'auth.dart';
 
 
@@ -15,44 +19,52 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   final Auth auth = Auth();
-  Future<void> _signUp() async {
-  try {
-    await auth.createUserWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
+  final _authBloc = AuthBloc(auth: Auth());
+//   Future<void> _signUp() async {
+//   try {
+//     await auth.createUserWithEmailAndPassword(
+//       email: _emailController.text.trim(),
+//       password: _passwordController.text.trim(),
+//     );
 
     
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Sign Up Successful!")),
-    );
-  } on FirebaseAuthException catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(e.message ?? "Sign Up Failed")),
-    );
-  }
-}
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(content: Text("Sign Up Successful!")),
+//     );
+//   } on FirebaseAuthException catch (e) {
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(content: Text(e.message ?? "Sign Up Failed")),
+//     );
+//   }
+// }
 
-Future<void> _login() async {
-  try {
-    await auth.signInWithEmailAndPassword(
-      email: _emailController.text.trim(),
-      password: _passwordController.text.trim(),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Login Successful!")),
-    );
-  } on FirebaseAuthException catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(e.message ?? "Login Failed")),
-    );
-  }
-}
+// Future<void> _login() async {
+//   try {
+//     await auth.signInWithEmailAndPassword(
+//       email: _emailController.text.trim(),
+//       password: _passwordController.text.trim(),
+//     );
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(content: Text("Login Successful!")),
+//     );
+//   } on FirebaseAuthException catch (e) {
+//     ScaffoldMessenger.of(context).showSnackBar(
+//       SnackBar(content: Text(e.message ?? "Login Failed")),
+//     );
+//   }
+// }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-  body: Container(
+  body: BlocListener<AuthBloc,AuthState>(listener: (context,state){
+    if (state is AuthLoggedIn){
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Already Logged In! (Thrown Listener)")),
+      );
+    }
+  },
+  child: Container(
     width: double.infinity,
     decoration: BoxDecoration(
       gradient: LinearGradient(
@@ -259,10 +271,13 @@ Future<void> _login() async {
                     child: MaterialButton(
                       onPressed: () async {
                         if (showSignup) {
-                          await _signUp();
-                          
+                          context.read<AuthBloc>().add(
+      AuthSignupEvent(email: _emailController.text, password: _passwordController.text),
+    );
                         } else {
-                          await _login();
+                          context.read<AuthBloc>().add(
+      AuthLoginEvent(email: _emailController.text, password: _passwordController.text),
+    );
                         }
                       },
                       height: 50,
@@ -352,6 +367,6 @@ Future<void> _login() async {
       ],
     ),
   ),
-);
+));
   }
 }

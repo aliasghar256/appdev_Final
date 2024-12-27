@@ -18,11 +18,6 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _currentUser = widget.auth.currentUser;
-    widget.auth.authStateChanges.listen((user) {
-      setState(() {
-        _currentUser = user;
-      });
-    });
   }
 
   @override
