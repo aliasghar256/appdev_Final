@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "654516726159",
+    "project_id": "exam-practice-4377e",
+    "storage_bucket": "exam-practice-4377e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:654516726159:android:87ccbf95a9c7d8010983fa",
+        "android_client_info": {
+          "package_name": "com.example.exam_practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "654516726159-inn45g542rkrkcdt4944kk1b1l47bc70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWwaIi3L_TrboEXz9GMb0CINwexwd-b-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "654516726159-inn45g542rkrkcdt4944kk1b1l47bc70.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "654516726159-tc7b7na3ffta7029vc26ln5r9f0k088m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.examPractice"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
