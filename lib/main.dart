@@ -9,6 +9,9 @@ import 'blocs/transactions/transactions_bloc.dart';
 import 'transaction_page.dart';
 import 'blocs/transactions/transactions_event.dart';
 
+import 'package:flutter_test/flutter_test.dart';
+
+
 Future <void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
