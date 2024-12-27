@@ -8,6 +8,7 @@ import 'blocs/auth/auth_bloc.dart';
 import 'blocs/transactions/transactions_bloc.dart';
 import 'transaction_page.dart';
 import 'blocs/transactions/transactions_event.dart';
+import 'apple_headphones_widget.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         ),
       BlocProvider(create: (context) => TransactionsBloc()..add(TransactionsFetchEvent()),),
       ], 
-      child: TransactionPage(),)
+      child: AppleHeadphonesWidget(),)
       
     );
   }
