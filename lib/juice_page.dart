@@ -37,10 +37,42 @@ class JuicePage extends StatelessWidget {
               itemCount: juice_data.length,
               itemBuilder: (context, index) {
                 final juice = juice_data[index];
-                return ListTile(
-                  title: Text(juice['name']),
-                  subtitle: Text(juice['price'].toString()),
+                return Center(
+                  child: Column(
+                    children: [
+                      Image.network(
+                        juice['imageURL'],
+                        width: 200,
+                        height: 200,
+                      ),
+                      Text(
+                        juice['name'],
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        juice['serving'],
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        juice['description'],
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        juice['delivery time'],
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Text(
+                        juice['price'].toString(),
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
                 );
+
+                // ListTile(
+                //   title: Text(juice['name']),
+                //   subtitle: Text(juice['price'].toString()),
+                // );
               },
             );
           } else if (state is JuiceError) {

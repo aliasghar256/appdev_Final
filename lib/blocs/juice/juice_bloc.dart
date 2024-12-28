@@ -17,6 +17,7 @@ class JuiceBloc extends Bloc<JuiceEvent, JuiceState> {
           'description': data['description'] ?? 'No Descrip',
           'delivery time': data['delivery time'] ?? 'No Time',
           'serving': data['serving'] ?? 'No Serving',
+          'imageURL': data['imageURL'] ?? 'No Image',
         };
       }).toList();
     }
