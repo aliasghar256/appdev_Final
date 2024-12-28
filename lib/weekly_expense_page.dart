@@ -14,7 +14,6 @@ class WeeklyExpensePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CategoryList(),
               ListTile(
                 title: Text(
                   'Weekly Expense',
@@ -67,16 +66,17 @@ class WeeklyExpensePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 16),
-              SizedBox(height: 16),
-              Column(
-                children: [
-                  _buildLegend('Grocery', Colors.purple, "\$758.20"),
-                  Text("\$758.20")
-                ],
-              ),
-              _buildLegend('Food & Drink', Colors.green, '\$758.20'),
-              _buildLegend('Shopping', Colors.red, '\$758.20'),
-              _buildLegend('Transportation', Colors.orange, '\$758.20'),
+              //   Column(
+              //     children: [
+              //       _buildLegend('Grocery', Colors.purple, "\$758.20"),
+              //       Text("\$758.20")
+              //     ],
+              //   ),
+              //   _buildLegend('Food & Drink', Colors.green, '\$758.20'),
+              //   _buildLegend('Shopping', Colors.red, '\$758.20'),
+              //   _buildLegend('Transportation', Colors.orange, '\$758.20'),
+              // ],
+              CategoryList(),
             ],
           ),
         ),
