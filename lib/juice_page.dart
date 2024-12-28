@@ -95,7 +95,7 @@ class JuicePage extends StatelessWidget {
                             )),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text("Rating: " + juice['rating'].toString()),
                           Text(
