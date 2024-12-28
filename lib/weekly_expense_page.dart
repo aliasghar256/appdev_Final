@@ -9,7 +9,7 @@ class WeeklyExpensePage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(12.0), // Reduced padding
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -18,7 +18,7 @@ class WeeklyExpensePage extends StatelessWidget {
                 title: const Text(
                   'Weekly Expense',
                   style: TextStyle(
-                    fontSize: 18, // Reduced font size
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -32,22 +32,22 @@ class WeeklyExpensePage extends StatelessWidget {
                 trailing: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 8), // Reduced button size
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
                   child: const Text(
                     'View Report',
-                    style: TextStyle(fontSize: 12), // Reduced font size
+                    style: TextStyle(fontSize: 12),
                   ),
                 ),
               ),
-              const SizedBox(height: 12), // Reduced spacing
+              const SizedBox(height: 12),
               SizedBox(
-                width: 200, // Reduced width
-                height: 200, // Reduced height
+                width: 200,
+                height: 200,
                 child: Stack(
                   children: [
                     Positioned(
@@ -77,7 +77,7 @@ class WeeklyExpensePage extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 12), // Reduced spacing
+              const SizedBox(height: 12),
               _buildCategoryList(),
             ],
           ),
@@ -89,8 +89,8 @@ class WeeklyExpensePage extends StatelessWidget {
   Widget _buildBubble(
       double size, Color color, String text, Color textColor, double fontSize) {
     return Container(
-      width: size, // Reduced size
-      height: size, // Reduced size
+      width: size,
+      height: size,
       decoration: BoxDecoration(
         color: color,
         shape: BoxShape.circle,
@@ -99,7 +99,7 @@ class WeeklyExpensePage extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: fontSize, // Reduced font size
+            fontSize: fontSize,
             fontWeight: FontWeight.bold,
             color: textColor,
           ),
@@ -110,7 +110,7 @@ class WeeklyExpensePage extends StatelessWidget {
 
   Widget _buildCategoryList() {
     return Padding(
-      padding: const EdgeInsets.all(12.0), // Reduced padding
+      padding: const EdgeInsets.all(12.0),
       child: Column(
         children: [
           Row(
@@ -141,15 +141,15 @@ class WeeklyExpensePage extends StatelessWidget {
           Row(
             children: [
               CircleAvatar(
-                radius: 4, // Reduced size
+                radius: 4,
                 backgroundColor: color,
               ),
-              const SizedBox(width: 4), // Reduced spacing
+              const SizedBox(width: 4),
               Flexible(
                 child: Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 12, // Reduced font size
+                    fontSize: 12,
                     fontWeight: FontWeight.bold,
                     color: Colors.black87,
                   ),
@@ -158,11 +158,11 @@ class WeeklyExpensePage extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 2), // Reduced spacing
+          const SizedBox(height: 2),
           Text(
             amount,
             style: const TextStyle(
-              fontSize: 10, // Reduced font size
+              fontSize: 10,
               color: Colors.grey,
             ),
           ),
