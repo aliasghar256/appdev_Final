@@ -12,21 +12,32 @@ class WeeklyExpensePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'Weekly Expense',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              ListTile(
+                title: Text(
+                  'Weekly Expense',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(
+                  'From 1 - 6 Apr, 2024',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                ),
+                trailing: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                  child: Text('View Report'),
                 ),
               ),
               SizedBox(height: 4),
-              Text(
-                'From 1 - 6 Apr, 2024',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
-              ),
               SizedBox(height: 16),
               Stack(
                 alignment: Alignment.center,
@@ -54,15 +65,6 @@ class WeeklyExpensePage extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: Text('View Report'),
-              ),
               SizedBox(height: 16),
               _buildLegend('Grocery', Colors.purple, '\$758.20'),
               _buildLegend('Food & Drink', Colors.green, '\$758.20'),
