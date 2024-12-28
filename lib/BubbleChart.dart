@@ -5,54 +5,64 @@ class BubbleChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      size: const Size(300, 300),
-      painter: BubbleChartPainter(),
-    );
-  }
-}
-
-class BubbleChartPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()..style = PaintingStyle.fill;
-
-    paint.color = Colors.purple.shade100;
-    canvas.drawCircle(const Offset(122, 118), 80, paint);
-    drawText(canvas, '48%', Offset(122, 118), Colors.purple, 24);
-
-    paint.color = Colors.green.shade100;
-    canvas.drawCircle(const Offset(230, 90), 50, paint);
-    drawText(canvas, '32%', Offset(230, 90), Colors.green, 18);
-
-    paint.color = Colors.red.shade100;
-    canvas.drawCircle(const Offset(170, 170), 40, paint);
-    drawText(canvas, '13%', Offset(170, 170), Colors.red, 16);
-
-    paint.color = Colors.orange.shade100;
-    canvas.drawCircle(const Offset(250, 140), 30, paint);
-    drawText(canvas, '7%', Offset(270, 140), Colors.orange, 14);
-  }
-
-  void drawText(
-      Canvas canvas, String text, Offset offset, Color color, double fontSize) {
-    final textPainter = TextPainter(
-      text: TextSpan(
-        text: text,
-        style: TextStyle(
-            color: color, fontSize: fontSize, fontWeight: FontWeight.bold),
+    return Container(
+      width: 300,
+      height: 300,
+      color: Colors.white, // Optional: background color
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          // Bubble 1
+          Positioned(
+            left: 40,
+            top: 50,
+            child: buildBubble(
+                80, Colors.purple.shade100, '48%', Colors.purple, 24),
+          ),
+          // Bubble 2
+          Positioned(
+            right: 40,
+            top: 20,
+            child:
+                buildBubble(50, Colors.green.shade100, '32%', Colors.green, 18),
+          ),
+          // Bubble 3
+          Positioned(
+            left: 80,
+            bottom: 60,
+            child: buildBubble(40, Colors.red.shade100, '13%', Colors.red, 16),
+          ),
+          // Bubble 4
+          Positioned(
+            right: 60,
+            bottom: 20,
+            child: buildBubble(
+                30, Colors.orange.shade100, '7%', Colors.orange, 14),
+          ),
+        ],
       ),
-      textAlign: TextAlign.center,
-      textDirection: TextDirection.ltr,
     );
-    textPainter.layout();
-    final textOffset = Offset(
-        offset.dx - textPainter.width / 2, offset.dy - textPainter.height / 2);
-    textPainter.paint(canvas, textOffset);
   }
 
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return false;
+  Widget buildBubble(double size, Color backgroundColor, String text,
+      Color textColor, double fontSize) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        shape: BoxShape.circle,
+      ),
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(
+            color: textColor,
+            fontSize: fontSize,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
   }
 }

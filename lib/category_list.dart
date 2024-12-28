@@ -12,16 +12,66 @@ class CategoryList extends StatelessWidget {
           // First row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              CategoryItem(
-                color: Colors.purple,
-                title: 'Grocery',
-                amount: '\$758.20',
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 5,
+                        backgroundColor: Colors.purple,
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Grocery',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Text(
+                    '\$758.20',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
-              CategoryItem(
-                color: Colors.green,
-                title: 'Food & Drink',
-                amount: '\$758.20',
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 5,
+                        backgroundColor: Colors.green,
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Food & Drink',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Text(
+                    '\$758.20',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -29,68 +79,71 @@ class CategoryList extends StatelessWidget {
           // Second row
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              CategoryItem(
-                color: Colors.red,
-                title: 'Shopping',
-                amount: '\$758.20',
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 5,
+                        backgroundColor: Colors.red,
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Shopping',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Text(
+                    '\$758.20',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
-              CategoryItem(
-                color: Colors.orange,
-                title: 'Transportation',
-                amount: '\$758.20',
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 5,
+                        backgroundColor: Colors.orange,
+                      ),
+                      const SizedBox(width: 8),
+                      const Text(
+                        'Transportation',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 4),
+                  const Text(
+                    '\$758.20',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
         ],
       ),
-    );
-  }
-}
-
-class CategoryItem extends StatelessWidget {
-  final Color color;
-  final String title;
-  final String amount;
-
-  const CategoryItem({
-    Key? key,
-    required this.color,
-    required this.title,
-    required this.amount,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            CircleAvatar(
-              radius: 5,
-              backgroundColor: color,
-            ),
-            const SizedBox(width: 8),
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 4),
-        Text(
-          amount,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey[700],
-          ),
-        ),
-      ],
     );
   }
 }

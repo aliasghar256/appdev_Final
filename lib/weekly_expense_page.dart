@@ -1,82 +1,84 @@
 import 'package:flutter/material.dart';
-import 'BubbleChart.dart';
-import 'category_list.dart';
 
 class WeeklyExpensePage extends StatelessWidget {
+  const WeeklyExpensePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(12.0), // Reduced padding
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               ListTile(
-                title: Text(
+                title: const Text(
                   'Weekly Expense',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 18, // Reduced font size
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(
+                subtitle: const Text(
                   'From 1 - 6 Apr, 2024',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 12, // Reduced font size
                     color: Colors.grey,
                   ),
                 ),
                 trailing: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 8), // Reduced button size
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: Text('View Report'),
+                  child: const Text(
+                    'View Report',
+                    style: TextStyle(fontSize: 12), // Reduced font size
+                  ),
                 ),
               ),
-              SizedBox(height: 16),
-              Stack(
-                children: [
-                  // _buildBubble(
-                  //     150, Colors.purple.shade100, '48%', Colors.purple),
-                  // Positioned(
-                  //   left: 40,
-                  //   top: 40,
-                  //   child: _buildBubble(
-                  //       100, Colors.green.shade100, '32%', Colors.green),
-                  // ),
-                  // Positioned(
-                  //   left: 40,
-                  //   top: 120,
-                  //   child: _buildBubble(
-                  //       80, Colors.red.shade100, '13%', Colors.red),
-                  // ),
-                  // Positioned(
-                  //   right: 80,
-                  //   bottom: 40,
-                  //   child: _buildBubble(
-                  //       60, Colors.orange.shade100, '7%', Colors.orange),
-                  // ),
-                  BubbleChart(),
-                ],
+              const SizedBox(height: 12), // Reduced spacing
+              SizedBox(
+                width: 200, // Reduced width
+                height: 200, // Reduced height
+                child: Stack(
+                  children: [
+                    Positioned(
+                      left: 30,
+                      top: 40,
+                      child: _buildBubble(
+                          60, Colors.purple.shade100, '48%', Colors.purple, 16),
+                    ),
+                    Positioned(
+                      right: 30,
+                      top: 10,
+                      child: _buildBubble(
+                          40, Colors.green.shade100, '32%', Colors.green, 12),
+                    ),
+                    Positioned(
+                      left: 60,
+                      bottom: 40,
+                      child: _buildBubble(
+                          30, Colors.red.shade100, '13%', Colors.red, 10),
+                    ),
+                    Positioned(
+                      right: 50,
+                      bottom: 10,
+                      child: _buildBubble(
+                          20, Colors.orange.shade100, '7%', Colors.orange, 8),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 16),
-              //   Column(
-              //     children: [
-              //       _buildLegend('Grocery', Colors.purple, "\$758.20"),
-              //       Text("\$758.20")
-              //     ],
-              //   ),
-              //   _buildLegend('Food & Drink', Colors.green, '\$758.20'),
-              //   _buildLegend('Shopping', Colors.red, '\$758.20'),
-              //   _buildLegend('Transportation', Colors.orange, '\$758.20'),
-              // ],
-              CategoryList(),
+              const SizedBox(height: 12), // Reduced spacing
+              _buildCategoryList(),
             ],
           ),
         ),
@@ -84,10 +86,11 @@ class WeeklyExpensePage extends StatelessWidget {
     );
   }
 
-  Widget _buildBubble(double size, Color color, String text, Color textColor) {
+  Widget _buildBubble(
+      double size, Color color, String text, Color textColor, double fontSize) {
     return Container(
-      width: size,
-      height: size,
+      width: size, // Reduced size
+      height: size, // Reduced size
       decoration: BoxDecoration(
         color: color,
         shape: BoxShape.circle,
@@ -96,7 +99,7 @@ class WeeklyExpensePage extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: size * 0.3,
+            fontSize: fontSize, // Reduced font size
             fontWeight: FontWeight.bold,
             color: textColor,
           ),
@@ -105,34 +108,62 @@ class WeeklyExpensePage extends StatelessWidget {
     );
   }
 
-  Widget _buildLegend(String title, Color color, String amount) {
+  Widget _buildCategoryList() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      padding: const EdgeInsets.all(12.0), // Reduced padding
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildCategoryItem(Colors.purple, 'Grocery', '\$758.20'),
+              _buildCategoryItem(Colors.green, 'Food & Drink', '\$758.20'),
+            ],
+          ),
+          const Divider(height: 24, thickness: 1, color: Colors.grey),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildCategoryItem(Colors.red, 'Shopping', '\$758.20'),
+              _buildCategoryItem(Colors.orange, 'Transportation', '\$758.20'),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCategoryItem(Color color, String title, String amount) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              Container(
-                width: 16,
-                height: 16,
-                decoration: BoxDecoration(
-                  color: color,
-                  shape: BoxShape.circle,
-                ),
+              CircleAvatar(
+                radius: 4, // Reduced size
+                backgroundColor: color,
               ),
-              SizedBox(width: 8),
-              Text(
-                title,
-                style: TextStyle(fontSize: 16),
+              const SizedBox(width: 4), // Reduced spacing
+              Flexible(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 12, // Reduced font size
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
+          const SizedBox(height: 2), // Reduced spacing
           Text(
             amount,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
+            style: const TextStyle(
+              fontSize: 10, // Reduced font size
+              color: Colors.grey,
             ),
           ),
         ],
