@@ -13,7 +13,6 @@ class WeeklyExpensePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              BubbleChart(),
               ListTile(
                 title: Text(
                   'Weekly Expense',
@@ -42,26 +41,27 @@ class WeeklyExpensePage extends StatelessWidget {
               SizedBox(height: 16),
               Stack(
                 children: [
-                  _buildBubble(
-                      150, Colors.purple.shade100, '48%', Colors.purple),
-                  Positioned(
-                    left: 40,
-                    top: 40,
-                    child: _buildBubble(
-                        100, Colors.green.shade100, '32%', Colors.green),
-                  ),
-                  Positioned(
-                    left: 40,
-                    top: 120,
-                    child: _buildBubble(
-                        80, Colors.red.shade100, '13%', Colors.red),
-                  ),
-                  Positioned(
-                    right: 80,
-                    bottom: 40,
-                    child: _buildBubble(
-                        60, Colors.orange.shade100, '7%', Colors.orange),
-                  ),
+                  // _buildBubble(
+                  //     150, Colors.purple.shade100, '48%', Colors.purple),
+                  // Positioned(
+                  //   left: 40,
+                  //   top: 40,
+                  //   child: _buildBubble(
+                  //       100, Colors.green.shade100, '32%', Colors.green),
+                  // ),
+                  // Positioned(
+                  //   left: 40,
+                  //   top: 120,
+                  //   child: _buildBubble(
+                  //       80, Colors.red.shade100, '13%', Colors.red),
+                  // ),
+                  // Positioned(
+                  //   right: 80,
+                  //   bottom: 40,
+                  //   child: _buildBubble(
+                  //       60, Colors.orange.shade100, '7%', Colors.orange),
+                  // ),
+                  BubbleChart(),
                 ],
               ),
               SizedBox(height: 16),
