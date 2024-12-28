@@ -27,7 +27,7 @@ class JuiceBloc extends Bloc<JuiceEvent, JuiceState> {
       try {
         final juice_data = await fetchTransactions();
         print("juice: $juice_data");
-        emit(JuiceLoaded(juice_data: juice_data, quantity: 0));
+        emit(JuiceLoaded(juice_data: juice_data));
       } catch (e) {
         emit(JuiceError(error: e.toString()));
       }
