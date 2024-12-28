@@ -43,11 +43,12 @@ class WeeklyExpensePage extends StatelessWidget {
                   _buildBubble(
                       150, Colors.purple.shade100, '48%', Colors.purple),
                   Positioned(
-                    right: 40,
+                    left: 40,
                     top: 40,
-                    child: _buildBubble(
+                    ),
+                    _buildBubble(
                         100, Colors.green.shade100, '32%', Colors.green),
-                  ),
+                  ,
                   Positioned(
                     left: 40,
                     top: 120,
