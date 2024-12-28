@@ -45,9 +45,15 @@ class JuicePage extends StatelessWidget {
                         width: 200,
                         height: 200,
                       ),
-                      Text(
-                        juice['name'],
-                        style: TextStyle(fontSize: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text(
+                            juice['name'],
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          AddToCartButton(),
+                        ],
                       ),
                       Text(
                         juice['serving'],
@@ -83,5 +89,63 @@ class JuicePage extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class AddToCartButton extends StatefulWidget {
+  const AddToCartButton({Key? key}) : super(key: key);
+
+  @override
+  State<AddToCartButton> createState() => _AddToCartButtonState();
+}
+
+class _AddToCartButtonState extends State<AddToCartButton> {
+  int quantity = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+        color: Colors.blue,
+        child: SizedBox(
+          height: 50,
+          width: 100,
+          child: quantity == 0
+              ? TextButton(
+                  child: const Text(
+                    'Add Item',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      quantity++;
+                    });
+                  },
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.remove),
+                      onPressed: () {
+                        setState(() {
+                          quantity--;
+                        });
+                      },
+                    ),
+                    Text(quantity.toString()),
+                    IconButton(
+                      icon: const Icon(Icons.add),
+                      onPressed: () {
+                        setState(() {
+                          quantity++;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+        ));
   }
 }
