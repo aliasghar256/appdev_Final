@@ -46,10 +46,11 @@ class JuicePage extends StatelessWidget {
                         height: 200,
                       ),
                       ListTile(
-                        title: Text(juice['name']),
+                        title:
+                            Text(juice['name'], style: TextStyle(fontSize: 24)),
                         subtitle: Text(
                           juice['serving'],
-                          style: TextStyle(fontSize: 20),
+                          style: TextStyle(fontSize: 18),
                         ),
                         trailing: Card(
                             color: Colors.blue,
