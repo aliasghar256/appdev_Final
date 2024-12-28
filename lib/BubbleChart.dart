@@ -17,25 +17,21 @@ class BubbleChartPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint = Paint()..style = PaintingStyle.fill;
 
-    // Draw largest circle
     paint.color = Colors.purple.shade100;
-    canvas.drawCircle(const Offset(120, 120), 80, paint);
-    drawText(canvas, '48%', Offset(120, 120), Colors.purple, 24);
+    canvas.drawCircle(const Offset(122, 118), 80, paint);
+    drawText(canvas, '48%', Offset(122, 118), Colors.purple, 24);
 
-    // Draw medium circle
     paint.color = Colors.green.shade100;
-    canvas.drawCircle(const Offset(220, 80), 50, paint);
-    drawText(canvas, '32%', Offset(220, 80), Colors.green, 18);
+    canvas.drawCircle(const Offset(230, 90), 50, paint);
+    drawText(canvas, '32%', Offset(230, 90), Colors.green, 18);
 
-    // Draw small circle (red)
     paint.color = Colors.red.shade100;
-    canvas.drawCircle(const Offset(190, 180), 40, paint);
-    drawText(canvas, '13%', Offset(190, 180), Colors.red, 16);
+    canvas.drawCircle(const Offset(170, 170), 40, paint);
+    drawText(canvas, '13%', Offset(170, 170), Colors.red, 16);
 
-    // Draw smallest circle (yellow)
     paint.color = Colors.orange.shade100;
-    canvas.drawCircle(const Offset(260, 150), 30, paint);
-    drawText(canvas, '7%', Offset(260, 150), Colors.orange, 14);
+    canvas.drawCircle(const Offset(250, 140), 30, paint);
+    drawText(canvas, '7%', Offset(270, 140), Colors.orange, 14);
   }
 
   void drawText(
