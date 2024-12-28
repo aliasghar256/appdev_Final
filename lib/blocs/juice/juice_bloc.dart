@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class JuiceBloc extends Bloc<JuiceEvent, JuiceState> {
-  JuiceBloc() : super(JuiceInitial()) {
+  JuiceBloc() : super(JuiceInitial(quantity: 0)) {
     final FirebaseFirestore _store = FirebaseFirestore.instance;
     Future<List<Map<String, dynamic>>> fetchTransactions() async {
       final querySnapshot = await _store.collection('juice').get();

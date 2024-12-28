@@ -1,6 +1,10 @@
 abstract class JuiceState {}
 
-class JuiceInitial extends JuiceState {}
+class JuiceInitial extends JuiceState {
+  final int quantity;
+
+  JuiceInitial({required this.quantity});
+}
 
 class JuiceLoading extends JuiceState {}
 
@@ -9,12 +13,6 @@ class JuiceLoaded extends JuiceState {
   final List<Map<String, dynamic>> juice_data;
 
   JuiceLoaded({required this.juice_data});
-}
-
-class JuiceCartQuantity extends JuiceState {
-  final int quantity;
-
-  JuiceCartQuantity({required this.quantity});
 }
 
 class JuiceError extends JuiceState {

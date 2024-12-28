@@ -52,7 +52,46 @@ class JuicePage extends StatelessWidget {
                             juice['name'],
                             style: TextStyle(fontSize: 20),
                           ),
-                          AddToCartButton(),
+                          Card(
+        color: Colors.blue,
+        child: SizedBox(
+          height: 50,
+          width: 100,
+          child: state. == 0
+              ? TextButton(
+                  child: const Text(
+                    'Add Item',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                  onPressed: () {
+                    BlocProvider.of<JuiceBloc>(context)
+                        .add(AddOneToCartEvent(quantity: quantity));
+                  },
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.remove),
+                      onPressed: () {
+                        BlocProvider.of<JuiceBloc>(context)
+                            .add(RemoveOneFromCartEvent(quantity: quantity));
+                      },
+                    ),
+                    Text(quantity.toString()),
+                    IconButton(
+                      icon: const Icon(Icons.add),
+                      onPressed: () {
+                        BlocProvider.of<JuiceBloc>(context)
+                            .add(AddOneToCartEvent(quantity: quantity));
+                      },
+                    ),
+                  ],
+                ),
+        ));,
                         ],
                       ),
                       Text(
