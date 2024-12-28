@@ -17,7 +17,7 @@ import 'weekly_expense_page.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:exam_practice/juice_page.dart';
-import 'package:exam_practice/weekly_expense_page2.dart';
+import 'package:exam_practice/BubbleChart.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
