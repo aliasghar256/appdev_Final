@@ -94,7 +94,6 @@ class JuicePage extends StatelessWidget {
                                     ),
                             )),
                       ),
-
                       Text(
                         juice['serving'],
                         style: TextStyle(fontSize: 20),
@@ -119,27 +118,31 @@ class JuicePage extends StatelessWidget {
                           style: TextStyle(fontSize: 24),
                         ),
                         trailing: ElevatedButton(
-            onPressed: () {
-              print('Add to cart button pressed');
-            },
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20), // Rounded edges
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            ),
-            child: Text(
-              'Add to cart',
-              style: TextStyle(
-                color: Colors.white, // Text color
-                fontSize: 16, // Text size
-                fontWeight: FontWeight.bold, // Text weight
-              ),
-                      ),),
-                      // Text(
-                      //   juice['price'].toString(),
-                      //   style: TextStyle(fontSize: 20),
-                      // ),
+                          onPressed: () {
+                            print('Add to cart button pressed');
+                          },
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(20), // Rounded edges
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 12),
+                          ),
+                          child: Text(
+                            'Add to cart',
+                            style: TextStyle(
+                              color: Colors.white, // Text color
+                              fontSize: 16, // Text size
+                              fontWeight: FontWeight.bold, // Text weight
+                            ),
+                          ),
+                        ),
+                        // Text(
+                        //   juice['price'].toString(),
+                        //   style: TextStyle(fontSize: 20),
+                        // ),
+                      )
                     ],
                   ),
                 );
