@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'BubbleChart.dart';
 
 class WeeklyExpensePage extends StatelessWidget {
   @override
@@ -12,6 +13,7 @@ class WeeklyExpensePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              BubbleChart(),
               ListTile(
                 title: Text(
                   'Weekly Expense',
