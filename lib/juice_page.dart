@@ -71,10 +71,19 @@ class JuicePage extends StatelessWidget {
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
-                      Text(
-                        juice['price'].toString(),
-                        style: TextStyle(fontSize: 20),
+                      ListTile(
+                        title:
+                            Text('Total Price', style: TextStyle(fontSize: 20)),
+                        subtitle: Text(
+                          '\$${juice['price'].toString()}',
+                          style: TextStyle(fontSize: 24),
+                        ),
+                        trailing: Text("Add to Cart"),
                       ),
+                      // Text(
+                      //   juice['price'].toString(),
+                      //   style: TextStyle(fontSize: 20),
+                      // ),
                     ],
                   ),
                 );
