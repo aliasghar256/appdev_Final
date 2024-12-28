@@ -21,3 +21,9 @@ class JuiceError extends JuiceState {
 
   JuiceError({required this.error});
 }
+
+class JuiceCartQuantity extends JuiceState {
+  final int quantity;
+
+  JuiceCartQuantity({required this.quantity});
+}
