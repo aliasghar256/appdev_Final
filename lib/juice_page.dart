@@ -18,6 +18,14 @@ class JuicePage extends StatelessWidget {
             // Navigator.pop(context);
           },
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.share),
+            onPressed: () {
+              // Navigator.pushNamed(context, '/add');
+            },
+          ),
+        ],
       ),
       body: BlocBuilder<JuiceBloc, JuiceState>(
         builder: (context, state) {
