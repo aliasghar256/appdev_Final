@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
               create: (context) => JuiceBloc()..add(JuiceFetchEvent()),
             ),
           ],
-          child: TransactionPage(),
+          child: WeeklyExpensePage(),
         ));
   }
 }
