@@ -11,6 +11,13 @@ class JuicePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Details'),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: BlocBuilder<JuiceBloc, JuiceState>(
         builder: (context, state) {
