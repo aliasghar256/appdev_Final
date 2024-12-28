@@ -12,6 +12,8 @@ import 'transaction_page.dart';
 import 'blocs/transactions/transactions_event.dart';
 import 'apple_headphones_widget.dart';
 
+import 'weekly_expense_page.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:exam_practice/juice_page.dart';
@@ -50,7 +52,7 @@ class MyApp extends StatelessWidget {
               create: (context) => JuiceBloc()..add(JuiceFetchEvent()),
             ),
           ],
-          child: JuicePage(),
+          child: WeeklyExpensePage(),
         ));
   }
 }
