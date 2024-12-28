@@ -36,5 +36,13 @@ class JuiceBloc extends Bloc<JuiceEvent, JuiceState> {
     on<JuiceErrorEvent>((event, emit) {
       emit(JuiceError(error: event.error));
     });
+
+    on<AddOneToCartEvent>((event, emit) {
+      emit(JuiceCartQuantity(quantity: event.quantity + 1));
+    });
+
+    on<RemoveOneFromCartEvent>((event, emit) {
+      emit(JuiceCartQuantity(quantity: event.quantity - 1));
+    });
   }
 }

@@ -118,9 +118,8 @@ class _AddToCartButtonState extends State<AddToCartButton> {
                     ),
                   ),
                   onPressed: () {
-                    setState(() {
-                      quantity++;
-                    });
+                    BlocProvider.of<JuiceBloc>(context)
+                        .add(AddOneToCartEvent(quantity: quantity));
                   },
                 )
               : Row(
@@ -130,18 +129,16 @@ class _AddToCartButtonState extends State<AddToCartButton> {
                     IconButton(
                       icon: const Icon(Icons.remove),
                       onPressed: () {
-                        setState(() {
-                          quantity--;
-                        });
+                        BlocProvider.of<JuiceBloc>(context)
+                            .add(RemoveOneFromCartEvent(quantity: quantity));
                       },
                     ),
                     Text(quantity.toString()),
                     IconButton(
                       icon: const Icon(Icons.add),
                       onPressed: () {
-                        setState(() {
-                          quantity++;
-                        });
+                        BlocProvider.of<JuiceBloc>(context)
+                            .add(AddOneToCartEvent(quantity: quantity));
                       },
                     ),
                   ],

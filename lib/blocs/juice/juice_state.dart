@@ -11,6 +11,12 @@ class JuiceLoaded extends JuiceState {
   JuiceLoaded({required this.juice_data});
 }
 
+class JuiceCartQuantity extends JuiceState {
+  final int quantity;
+
+  JuiceCartQuantity({required this.quantity});
+}
+
 class JuiceError extends JuiceState {
   final String error;
 
