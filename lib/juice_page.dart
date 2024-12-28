@@ -94,9 +94,15 @@ class JuicePage extends StatelessWidget {
                                     ),
                             )),
                       ),
-                      Text(
-                        juice['serving'],
-                        style: TextStyle(fontSize: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Text("Rating: " + juice['rating'].toString()),
+                          Text(
+                            juice['numberReviews'].toString(),
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ],
                       ),
                       Text(
                         juice['description'],
@@ -132,7 +138,7 @@ class JuicePage extends StatelessWidget {
                           child: Text(
                             'Add to cart',
                             style: TextStyle(
-                              color: Colors.white, // Text color
+                              color: Colors.black, // Text color
                               fontSize: 16, // Text size
                               fontWeight: FontWeight.bold, // Text weight
                             ),
