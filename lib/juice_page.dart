@@ -21,7 +21,6 @@ class JuicePage extends StatelessWidget {
       ),
       body: BlocBuilder<JuiceBloc, JuiceState>(
         builder: (context, state) {
-          context.read<JuiceBloc>().add(JuiceFetchEvent());
           if (state is JuiceLoading) {
             return Center(child: CircularProgressIndicator());
           } else if (state is JuiceLoaded) {
