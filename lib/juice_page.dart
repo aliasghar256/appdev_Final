@@ -98,6 +98,7 @@ class JuicePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text("Rating: " + juice['rating'].toString()),
+                          Text(" Number of Reviews: "),
                           Text(
                             juice['numberReviews'].toString(),
                             style: TextStyle(fontSize: 20),
