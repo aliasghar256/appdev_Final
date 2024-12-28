@@ -45,6 +45,13 @@ class JuicePage extends StatelessWidget {
                         width: 200,
                         height: 200,
                       ),
+                      ListTile(
+                        title: Text(juice['name']),
+                        subtitle: Text(
+                          juice['serving'],
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
