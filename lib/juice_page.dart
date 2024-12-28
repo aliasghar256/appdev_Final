@@ -52,7 +52,50 @@ class JuicePage extends StatelessWidget {
                             juice['name'],
                             style: TextStyle(fontSize: 20),
                           ),
-                          AddToCartButton(),
+                          Card(
+                              color: Colors.blue,
+                              child: SizedBox(
+                                height: 50,
+                                width: 100,
+                                child: state.quantity == 0
+                                    ? TextButton(
+                                        child: const Text(
+                                          'Add Item',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          BlocProvider.of<JuiceBloc>(context)
+                                              .add(AddOneToCartEvent());
+                                        },
+                                      )
+                                    : Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          IconButton(
+                                            icon: const Icon(Icons.remove),
+                                            onPressed: () {
+                                              BlocProvider.of<JuiceBloc>(
+                                                      context)
+                                                  .add(
+                                                      RemoveOneFromCartEvent());
+                                            },
+                                          ),
+                                          Text(state.quantity.toString()),
+                                          IconButton(
+                                            icon: const Icon(Icons.add),
+                                            onPressed: () {
+                                              BlocProvider.of<JuiceBloc>(
+                                                      context)
+                                                  .add(AddOneToCartEvent());
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                              )),
                         ],
                       ),
                       Text(
@@ -105,57 +148,57 @@ class JuicePage extends StatelessWidget {
   }
 }
 
-class AddToCartButton extends StatefulWidget {
-  const AddToCartButton({Key? key}) : super(key: key);
+// class AddToCartButton extends StatefulWidget {
+//   const AddToCartButton({Key? key}) : super(key: key);
 
-  @override
-  State<AddToCartButton> createState() => _AddToCartButtonState();
-}
+//   @override
+//   State<AddToCartButton> createState() => _AddToCartButtonState();
+// }
 
-class _AddToCartButtonState extends State<AddToCartButton> {
-  int quantity = 0;
+// class _AddToCartButtonState extends State<AddToCartButton> {
+//   int quantity = 0;
 
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-        color: Colors.blue,
-        child: SizedBox(
-          height: 50,
-          width: 100,
-          child: quantity == 0
-              ? TextButton(
-                  child: const Text(
-                    'Add Item',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  onPressed: () {
-                    BlocProvider.of<JuiceBloc>(context)
-                        .add(AddOneToCartEvent(quantity: quantity));
-                  },
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      icon: const Icon(Icons.remove),
-                      onPressed: () {
-                        BlocProvider.of<JuiceBloc>(context)
-                            .add(RemoveOneFromCartEvent(quantity: quantity));
-                      },
-                    ),
-                    Text(quantity.toString()),
-                    IconButton(
-                      icon: const Icon(Icons.add),
-                      onPressed: () {
-                        BlocProvider.of<JuiceBloc>(context)
-                            .add(AddOneToCartEvent(quantity: quantity));
-                      },
-                    ),
-                  ],
-                ),
-        ));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Card(
+//         color: Colors.blue,
+//         child: SizedBox(
+//           height: 50,
+//           width: 100,
+//           child: quantity == 0
+//               ? TextButton(
+//                   child: const Text(
+//                     'Add Item',
+//                     style: TextStyle(
+//                       color: Colors.white,
+//                     ),
+//                   ),
+//                   onPressed: () {
+//                     BlocProvider.of<JuiceBloc>(context)
+//                         .add(AddOneToCartEvent(quantity: quantity));
+//                   },
+//                 )
+//               : Row(
+//                   mainAxisAlignment: MainAxisAlignment.center,
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                     IconButton(
+//                       icon: const Icon(Icons.remove),
+//                       onPressed: () {
+//                         BlocProvider.of<JuiceBloc>(context)
+//                             .add(RemoveOneFromCartEvent(quantity: quantity));
+//                       },
+//                     ),
+//                     Text(quantity.toString()),
+//                     IconButton(
+//                       icon: const Icon(Icons.add),
+//                       onPressed: () {
+//                         BlocProvider.of<JuiceBloc>(context)
+//                             .add(AddOneToCartEvent(quantity: quantity));
+//                       },
+//                     ),
+//                   ],
+//                 ),
+//         ));
+//   }
+// }

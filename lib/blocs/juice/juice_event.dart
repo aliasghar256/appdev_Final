@@ -2,17 +2,9 @@ abstract class JuiceEvent {}
 
 class JuiceFetchEvent extends JuiceEvent {}
 
-class AddOneToCartEvent extends JuiceEvent {
-  final int quantity;
+class AddOneToCartEvent extends JuiceEvent {}
 
-  AddOneToCartEvent({required this.quantity});
-}
-
-class RemoveOneFromCartEvent extends JuiceEvent {
-  final int quantity;
-
-  RemoveOneFromCartEvent({required this.quantity});
-}
+class RemoveOneFromCartEvent extends JuiceEvent {}
 
 class ReadMoreClickedEvent extends JuiceEvent {
   final String description;

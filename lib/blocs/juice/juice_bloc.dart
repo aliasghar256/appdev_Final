@@ -37,12 +37,24 @@ class JuiceBloc extends Bloc<JuiceEvent, JuiceState> {
       emit(JuiceError(error: event.error));
     });
 
+    //I will use copyWith to update the state of quantity in the JuiceLoaded State. It'll modify the quantity & throw the same state, I could alternatively make it
+    //fetch from firebase again but those wouldn't be good practices
     on<AddOneToCartEvent>((event, emit) {
-      emit(JuiceCartQuantity(quantity: event.quantity + 1));
+      if (state is JuiceLoaded) {
+        final currentState = state as JuiceLoaded;
+        emit(JuiceLoaded(
+            juice_data: currentState.juice_data,
+            quantity: currentState.quantity + 1));
+      }
     });
 
     on<RemoveOneFromCartEvent>((event, emit) {
-      emit(JuiceCartQuantity(quantity: event.quantity - 1));
+      if (state is JuiceLoaded) {
+        final currentState = state as JuiceLoaded;
+        emit(JuiceLoaded(
+            juice_data: currentState.juice_data,
+            quantity: currentState.quantity - 1));
+      }
     });
   }
 }

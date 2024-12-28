@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:exam_practice/weekly_expense_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
-import 'package:exam_practice/apple_headphones_widget.dart';
+import 'package:exam_practice/weekly_expense_page.dart';
 
 Future<void> testExecutable(FutureOr<void> Function() testMain) async {
   return GoldenToolkit.runWithConfiguration(
@@ -14,7 +15,8 @@ Future<void> testExecutable(FutureOr<void> Function() testMain) async {
       await testMain();
     },
     config: GoldenToolkitConfiguration(
-      skipGoldenAssertion: () => !Platform.isMacOS, // Skip assertions on unsupported platforms
+      skipGoldenAssertion: () =>
+          !Platform.isMacOS, // Skip assertions on unsupported platforms
     ),
   );
 }
@@ -24,11 +26,11 @@ void main() {
     await testExecutable(() {});
   });
 
-  testGoldens('AppleHeadphonesWidget Golden Test', (WidgetTester tester) async {
+  testGoldens('WeeklyExpensePage Golden Test', (WidgetTester tester) async {
     // Create the widget to test
     final widgetUnderTest = MaterialApp(
       home: Scaffold(
-        body: AppleHeadphonesWidget(),
+        body: WeeklyExpensePage(),
       ),
     );
 
@@ -42,7 +44,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Generate or validate the golden file
-    await screenMatchesGolden(tester, 'apple_headphones_widget');
+    await screenMatchesGolden(tester, 'weekly_expense_page');
   });
 }
 
