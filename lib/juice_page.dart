@@ -63,9 +63,13 @@ class JuicePage extends StatelessWidget {
                         juice['description'],
                         style: TextStyle(fontSize: 20),
                       ),
-                      Text(
-                        juice['delivery time'],
-                        style: TextStyle(fontSize: 20),
+                      ListTile(
+                        leading: Icon(Icons.timer),
+                        title: Text('Delivery Time'),
+                        subtitle: Text(
+                          juice['delivery time'],
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                       Text(
                         juice['price'].toString(),
