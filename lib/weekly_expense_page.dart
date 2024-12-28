@@ -45,10 +45,9 @@ class WeeklyExpensePage extends StatelessWidget {
                   Positioned(
                     left: 40,
                     top: 40,
-                    ),
-                    _buildBubble(
+                    child: _buildBubble(
                         100, Colors.green.shade100, '32%', Colors.green),
-                  ,
+                  ),
                   Positioned(
                     left: 40,
                     top: 120,
@@ -67,10 +66,10 @@ class WeeklyExpensePage extends StatelessWidget {
               SizedBox(height: 16),
               Column(
                 children: [
-                  _buildLegend('Grocery', Colors.purple,"\$758.20"),
+                  _buildLegend('Grocery', Colors.purple, "\$758.20"),
                   Text("\$758.20")
                 ],
-              )
+              ),
               _buildLegend('Food & Drink', Colors.green, '\$758.20'),
               _buildLegend('Shopping', Colors.red, '\$758.20'),
               _buildLegend('Transportation', Colors.orange, '\$758.20'),
