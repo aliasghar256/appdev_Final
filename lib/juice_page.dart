@@ -57,8 +57,8 @@ class JuicePage extends StatelessWidget {
                             trailing: Card(
                                 color: Colors.blue,
                                 child: SizedBox(
-                                  height: 50,
-                                  width: 100,
+                                  height: 25,
+                                  width: 50,
                                   child: state.quantity == 0
                                       ? TextButton(
                                           child: const Text(
